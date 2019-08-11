@@ -12,7 +12,7 @@ import tult.dtos.RoomDTO;
 
 /**
  *
- * @author Chi Trung
+ * @author TuanTu
  */
 public class RoomMapper {
 

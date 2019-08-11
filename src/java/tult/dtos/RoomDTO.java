@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author Chi Trung
+ * @author TuanTu
  */
 public class RoomDTO implements Serializable{
     public int RoomId;

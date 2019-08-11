@@ -13,7 +13,7 @@ import tult.dtos.OrderDTO;
 
 /**
  *
- * @author Chi Trung
+ * @author TuanTu
  */
 public class OrderMapper {
      public List<OrderDTO> mapperListRoom(ResultSet rs) throws Exception {

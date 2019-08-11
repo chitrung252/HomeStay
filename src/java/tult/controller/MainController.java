@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Chi Trung
+ * @author TuanTu
  */
 public class MainController extends HttpServlet {
     private static final String ERROR ="error.jsp";

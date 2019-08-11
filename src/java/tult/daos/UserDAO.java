@@ -14,7 +14,7 @@ import tult.db.MyConnection;
 
 /**
  *
- * @author Chi Trung
+ * @author TuanTu
  */
 public class UserDAO implements Serializable {
 

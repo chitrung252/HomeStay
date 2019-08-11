@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author Chi Trung
+ * @author TuanTu
  */
 public class UserDTO implements Serializable{
     private  int userId;

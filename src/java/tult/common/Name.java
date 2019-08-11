@@ -7,10 +7,9 @@ package tult.common;
 
 /**
  *
- * @author Chi Trung
+ * @author TuanTu
  */
 public class Name {
-
     //User
     public static final String USERID = "UserId";
     public static final String USERNAME = "Username";

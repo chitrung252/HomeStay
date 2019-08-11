@@ -19,7 +19,7 @@ import tult.dtos.RoomDTO;
 
 /**
  *
- * @author Chi Trung
+ * @author TuanTu
  */
 public class HomeController extends HttpServlet {
     private static final String ERROR ="error.jsp";
@@ -38,38 +38,16 @@ public class HomeController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
         try {
-            String[] param = initialDataOrder();
-            RoomDAO dao = new RoomDAO();
-            List<OrderDTO> list = dao.findAllOrder(param);
-            if(list != null){
-                url = HOME;
-                request.setAttribute("LROOM", list);
-            }
+           
+           
         } catch (Exception e) {
             log("ERROR at HomController" + e.getMessage());
         }finally{
             request.getRequestDispatcher(url).forward(request, response);
         }
     }
-    public String[] initialData(){
-        String[] param = new String[2];
-        param[0] = ObjectClass.RoomId + 
-                "," + ObjectClass.RoomName + 
-                "," + ObjectClass.RoomPrice +
-                "," + ObjectClass.RoomQuanlity;
-        param[1] = "Room";
-        return param;
-    }
-    public String [] initialDataOrder(){
-        String[] param = new String[3];
-        param[0] = "r." + ObjectClass.RoomQuanlity +"," + 
-                "r." +ObjectClass.RoomName + "," +
-                "o." + ObjectClass.OrderId + "," +
-                "o." + ObjectClass.OrderName + ","+
-                "o." + ObjectClass.OrderDate;
-        param[1] = "Orders o LEFT JOIN Room r ON r."+ ObjectClass.RoomId+ "=" + "o." + ObjectClass.RoomId;
-        return param;
-    }
+
+   
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

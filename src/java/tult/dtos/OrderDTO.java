@@ -10,7 +10,7 @@ import java.sql.Date;
 
 /**
  *
- * @author Chi Trung
+ * @author TuanTu
  */
 public class OrderDTO extends RoomDTO implements Serializable{
     public int OrderId;

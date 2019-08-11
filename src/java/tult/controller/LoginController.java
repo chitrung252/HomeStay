@@ -15,11 +15,11 @@ import tult.daos.UserDAO;
 
 /**
  *
- * @author Chi Trung
+ * @author TuanTu
  */
 public class LoginController extends HttpServlet {
     private static final String ERROR = "error.jsp";
-    private static final String ADMIN = "admin.jsp";
+    private static final String ADMIN = "admin/admin.jsp";
     private static final String STAFF = "staff.jsp";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

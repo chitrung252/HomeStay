@@ -7,7 +7,7 @@ package tult.common;
 
 /**
  *
- * @author Chi Trung
+ * @author TuanTu
  */
 public class ObjectClass {
 

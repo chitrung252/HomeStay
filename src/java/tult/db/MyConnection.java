@@ -8,15 +8,11 @@ package tult.db;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-/**
- *
- * @author Chi Trung
- */
 public class MyConnection {
     public static final Connection GetMyConnection() throws Exception{
         Connection conn = null;
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433; databaseName= HotelManagement", "sa","123456");
+        conn = DriverManager.getConnection("jdbc:sqlserver://107.178.100.226:1433; databaseName= DBMyBookHomeStay", "manager","Zaq@123456");
         return conn;
     }
 }
