@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import tult.daos.UserDAO;
 
 /**
@@ -40,6 +41,8 @@ public class LoginController extends HttpServlet {
             String password = request.getParameter("txtPassword");
             String[] check = dao.checkLogin(username, password);
             if(check != null){
+                HttpSession session = request.getSession();
+                session.setAttribute("USERNAME", check[1]);
                 if(check[0].equals("Admin")){
                     url = ADMIN;
                 }else if(check[0].equals("Staff")){

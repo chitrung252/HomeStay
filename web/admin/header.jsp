@@ -3,6 +3,7 @@
     Created on : Aug 7, 2019, 11:55:31 PM
     Author     : Chi Trung
 --%>
+<%@page import="tult.common.UrlWebsite"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,11 +19,12 @@
         <title>Admin Page</title>
 
         <!-- Custom fonts for this template-->
-        <link href="admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="../../HotelManagement/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
         <!-- Custom styles for this template-->
-        <link href="admin/css/sb-admin-2.min.css" rel="stylesheet">
+        <link href="../../HotelManagement/admin/css/sb-admin-2.min.css" rel="stylesheet">
+        <link href="../../HotelManagement/admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
     </head>
 
@@ -51,7 +53,7 @@
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Trang Chủ</span>
                     </a>
-                    <a class="nav-link" href="m-user.jsp">
+                    <a class="nav-link" href="<%= UrlWebsite.USERCONTROLLER %>?action=GetUser">
                         <i class="fas fa-fw fa-cog"></i>
                         <span>Quản lí tài khoản</span>
                     </a>
@@ -193,19 +195,10 @@
                                     </form>
                                 </div>
                             </li>
-
-                            <!-- Nav Item - Alerts -->
-
-
-                            <!-- Nav Item - Messages -->
-
-
-
-
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">${sessionScope.USERNAME}</span>
                                     <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                                 </a>
                                 <!-- Dropdown - User Information -->

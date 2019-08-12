@@ -9,12 +9,6 @@ import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.List;
-import tult.db.MyConnection;
-import tult.dtos.OrderDTO;
-import tult.dtos.RoomDTO;
-import tult.mapper.OrderMapper;
-import tult.mapper.RoomMapper;
 
 /**
  *
