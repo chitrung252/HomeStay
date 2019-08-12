@@ -12,26 +12,37 @@ import java.io.Serializable;
  * @author TuanTu
  */
 public class RoomDTO implements Serializable{
-    public int RoomId;
+    public String RoomId;
     public String RoomName;
-    public double Price;
-    public int Quanlity;
-
+    public String Price;
+    public String Quanlity;
+    public String Space;
+    public String Desc;
     public RoomDTO() {
     }
 
-    public RoomDTO(int RoomId, String RoomName, double Price, int Quanlity) {
+    public RoomDTO(String RoomId, String RoomName, String Price, String Quanlity, String Space, String Desc) {
         this.RoomId = RoomId;
         this.RoomName = RoomName;
         this.Price = Price;
         this.Quanlity = Quanlity;
+        this.Space = Space;
+        this.Desc = Desc;
     }
 
-    public int getRoomId() {
+    public RoomDTO(String RoomId, String RoomName, String Price, String Space, String Desc) {
+        this.RoomId = RoomId;
+        this.RoomName = RoomName;
+        this.Price = Price;
+        this.Space = Space;
+        this.Desc = Desc;
+    }
+    
+    public String getRoomId() {
         return RoomId;
     }
 
-    public void setRoomId(int RoomId) {
+    public void setRoomId(String RoomId) {
         this.RoomId = RoomId;
     }
 
@@ -43,22 +54,39 @@ public class RoomDTO implements Serializable{
         this.RoomName = RoomName;
     }
 
-    public double getPrice() {
+    public String getPrice() {
         return Price;
     }
 
-    public void setPrice(double Price) {
+    public void setPrice(String Price) {
         this.Price = Price;
     }
 
-    public int getQuanlity() {
+    public String getQuanlity() {
         return Quanlity;
     }
 
-    public void setQuanlity(int Quanlity) {
+    public void setQuanlity(String Quanlity) {
         this.Quanlity = Quanlity;
     }
 
+    public String getSpace() {
+        return Space;
+    }
+
+    public void setSpace(String Space) {
+        this.Space = Space;
+    }
+
+    public String getDesc() {
+        return Desc;
+    }
+
+    public void setDesc(String Desc) {
+        this.Desc = Desc;
+    }
+
+    
     
     
 }
