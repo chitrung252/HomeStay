@@ -48,10 +48,10 @@
         <servlet-name>AManageUserController</servlet-name>
         <url-pattern>/AManageUserController</url-pattern>      
     </servlet-mapping>
-    <servletmapping>
+    <servlet-mapping>
         <servlet-name>GetListFoodController</servlet-name>
         <url-pattern>/GetListFoodController</url-pattern>
-    </servletmapping>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>GetListRoomController</servlet-name>
         <url-pattern>/GetListRoomController</url-pattern>
