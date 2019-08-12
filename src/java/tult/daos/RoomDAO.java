@@ -11,7 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import tult.common.ObjectClass;
+import tult.common.Name;
 import tult.db.MyConnection;
 import tult.dtos.RoomDTO;;
 
@@ -50,11 +50,11 @@ public class RoomDAO implements Serializable {
            list = new ArrayList<>();
            String RoomId, RoomName, RoomPrice, RoomSpace, RoomDes;
            while(rs.next()){
-               RoomId = rs.getString(ObjectClass.RoomId);
-               RoomName = rs.getString(ObjectClass.RoomName);
-               RoomPrice = rs.getString(ObjectClass.RoomPrice);
-               RoomSpace = rs.getString(ObjectClass.RoomSpace);
-               RoomDes = rs.getString(ObjectClass.RoomDes);
+               RoomId = rs.getString(Name.ROOMID);
+               RoomName = rs.getString(Name.ROOMNAME);
+               RoomPrice = rs.getString(Name.ROOMPRICE);
+               RoomSpace = rs.getString(Name.ROOMPRICE);
+               RoomDes = rs.getString(Name.ROOMDES);
                dto = new RoomDTO(RoomId, RoomName, RoomPrice, RoomSpace, RoomDes);
                list.add(dto);
                

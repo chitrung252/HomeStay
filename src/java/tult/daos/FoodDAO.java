@@ -10,7 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import tult.common.ObjectClass;
+import tult.common.Name;
 import tult.db.MyConnection;
 import tult.dtos.FoodDTO;
 
@@ -47,10 +47,10 @@ public class FoodDAO {
              list = new ArrayList<>();
              String foodId,foodName,foodPrice,foodImage;
              while(rs.next()){
-                 foodId = rs.getString(ObjectClass.FoodId);
-                 foodName = rs.getString(ObjectClass.FoodName);
-                 foodPrice = rs.getString(ObjectClass.FoodPrice);
-                 foodImage = rs.getString(ObjectClass.FoodImage);
+                 foodId = rs.getString(Name.FOODID);
+                 foodName = rs.getString(Name.FOODIMAGE);
+                 foodPrice = rs.getString(Name.FOODPRICE);
+                 foodImage = rs.getString(Name.FOODIMAGE);
                  dto = new FoodDTO(foodId, foodName, foodPrice, foodImage);
                  list.add(dto);
              }

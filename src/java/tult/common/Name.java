@@ -5,8 +5,6 @@
  */
 package tult.common;
 
-import java.sql.Date;
-
 /**
  *
  * @author TuanTu
@@ -24,7 +22,22 @@ public class Name {
 //    Role
     public static final String ROLEID = "RoleId";
     public static final String ROLENAME = "RoleName";
-
+// Room
+      public static final String ROOMID = "RoomId";
+    public static final String ROOMNAME = "RoomName";
+    public static final String ROOMPRICE = "Price";
+    public static final String ROOMQUANLITY = "Quanlity";
+    public static final String ROOMDES = "RoomDes";
+    public static final String ROOMSPACE = "RoomSpace";
+     //Order
+    public static final String ORDERID = "OrderId";
+    public static final String ORDERNAME = "OrderName";
+    public static final String ORDERDATE = "OrderDate";
+    //Food
+    public static final String FOODID = "FoodId";
+    public static final String FOODNAME = "FoodName";
+    public static final String FOODPRICE = "FoodPrice";
+    public static final String FOODIMAGE = "FoodImage";
 //    common
     public static final String ISDELETE = "IsDelete";
     public static final String DESCRIPTION = "Description";
