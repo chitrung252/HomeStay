@@ -12,6 +12,14 @@
         <servlet-name>LoginController</servlet-name>
         <servlet-class>tult.controller.LoginController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetListFoodController</servlet-name>
+        <servlet-class>tult.controller.GetListFoodController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetListRoomController</servlet-name>
+        <servlet-class>tult.controller.GetListRoomController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/HomeController</url-pattern>
@@ -23,6 +31,14 @@
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetListFoodController</servlet-name>
+        <url-pattern>/GetListFoodController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetListRoomController</servlet-name>
+        <url-pattern>/GetListRoomController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

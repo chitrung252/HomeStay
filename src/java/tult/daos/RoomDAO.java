@@ -9,12 +9,12 @@ import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
+import tult.common.ObjectClass;
 import tult.db.MyConnection;
 import tult.dtos.OrderDTO;
-import tult.dtos.RoomDTO;
-import tult.mapper.OrderMapper;
-import tult.mapper.RoomMapper;
+import tult.dtos.RoomDTO;;
 
 /**
  *
@@ -40,6 +40,29 @@ public class RoomDAO implements Serializable {
         }
     }
 
-   
+   public  List<RoomDTO> getListRoom()throws Exception{
+       List<RoomDTO> list = null;
+       RoomDTO dto  = null;
+       try {
+           conn = MyConnection.GetMyConnection();
+           preStm = conn.prepareCall("{call sp_main_dbo_room_getListRooms}");;
+           rs = preStm.executeQuery();
+           list = new ArrayList<>();
+           String RoomId, RoomName, RoomPrice, RoomSpace, RoomDes;
+           while(rs.next()){
+               RoomId = rs.getString(ObjectClass.RoomId);
+               RoomName = rs.getString(ObjectClass.RoomName);
+               RoomPrice = rs.getString(ObjectClass.RoomPrice);
+               RoomSpace = rs.getString(ObjectClass.RoomSpace);
+               RoomDes = rs.getString(ObjectClass.RoomDes);
+               dto = new RoomDTO(RoomId, RoomName, RoomPrice, RoomSpace, RoomDes);
+               list.add(dto);
+               
+           }
+       } finally{
+           closeConnection();
+       }
+       return list;
+   }
   
 }

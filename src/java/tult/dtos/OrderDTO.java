@@ -20,12 +20,14 @@ public class OrderDTO extends RoomDTO implements Serializable{
     public OrderDTO() {
     }
 
-    public OrderDTO(int OrderId, String OrderName, Date OrderDate, int RoomId, String RoomName, double Price, int Quanlity) {
-        super(RoomId, RoomName, Price, Quanlity);
+    public OrderDTO(int OrderId, String OrderName, Date OrderDate, String RoomId, String RoomName, String Price, String Quanlity, String Space, String Desc) {
+        super(RoomId, RoomName, Price, Quanlity, Space, Desc);
         this.OrderId = OrderId;
         this.OrderName = OrderName;
         this.OrderDate = OrderDate;
     }
+
+    
 
     public int getOrderId() {
         return OrderId;
