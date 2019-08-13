@@ -25,7 +25,7 @@ public class AUserDao implements Serializable {
     Connection conn;
     ResultSet rs;
     List<UserDTO> result;
-    UserDTO dto ;
+    UserDTO dto;
 
     public AUserDao() {
         dto = null;
@@ -58,6 +58,7 @@ public class AUserDao implements Serializable {
                         .FullName(rs.getString(Name.FULLNAME))
                         .DayCreate(rs.getDate(Name.DAYCREATE))
                         .IsDelete(rs.getBoolean(Name.ISDELETE))
+                        .IsActive(rs.getBoolean(Name.ISACTIVE))
                         .RoleName(rs.getString(Name.ROLENAME)).build();
                 result.add(dto);
             }
@@ -66,26 +67,78 @@ public class AUserDao implements Serializable {
         }
         return result;
     }
-    public UserDTO editUser(int id) throws Exception{
+
+    public UserDTO editUser(int id) throws Exception {
         try {
             conn = MyConnection.GetMyConnection();
             preStm = conn.prepareCall("{call sp_admin_dbo_user_getUserById(?)}");
             preStm.setInt(1, id);
             rs = preStm.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 dto = new UserDTO.UserBuilder()
                         .UserId(rs.getInt(Name.USERID))
                         .UserName(rs.getString(Name.USERNAME))
                         .FullName(rs.getString(Name.FULLNAME))
-                        .AddressUser(rs.getString(Name.ADDRESSUSER))                       
+                        .AddressUser(rs.getString(Name.ADDRESSUSER))
                         .DayCreate(rs.getDate(Name.DAYCREATE))
-                        .Phone(rs.getString(Name.PHONE))                       
-                        .IsDelete(rs.getBoolean(Name.ISDELETE))
-                        .RoleId(rs.getInt(Name.ROLEID)).build();              
+                        .Phone(rs.getString(Name.PHONE))
+                        .Email(rs.getString(Name.EMAIL))
+                        .IsActive(rs.getBoolean(Name.ISACTIVE))
+                        .RoleId(rs.getInt(Name.ROLEID)).build();
             }
-        } finally{
+        } finally {
             closeConnection();
         }
         return dto;
+    }
+
+    public boolean createUser(UserDTO dto) throws Exception {
+        boolean check = false;
+        try {
+            conn = MyConnection.GetMyConnection();
+            preStm = conn.prepareCall("{call sp_admin_dbo_user_insertUser(?,?,?,?,?,?,?,?,?) }");
+            setDataUser(dto);
+            check = preStm.executeUpdate() > 0;
+        } finally {
+            closeConnection();
+        }
+        return check;
+    }
+
+    public boolean deleteUser(int userId) throws Exception{
+        boolean check = false;
+        try {
+            conn = MyConnection.GetMyConnection();
+            preStm = conn.prepareCall("{call sp_admin_dbo_user_deleteUser(?) }");
+            preStm.setInt(1, userId);
+            check = preStm.executeUpdate() > 0;
+        } finally{
+            closeConnection();
+        }
+        return check;
+    }
+    
+    public boolean updateUser(UserDTO dto) throws Exception{
+        boolean check = false;
+        try {
+            conn = MyConnection.GetMyConnection();
+            preStm = conn.prepareCall("{call sp_admin_dbo_user_updateUser(?,?,?,?,?,?,?,?,?) }");
+            setDataUser(dto);
+            check = preStm.executeUpdate() > 0;
+        } finally {
+            closeConnection();
+        }
+        return check;
+    }
+     public void setDataUser(UserDTO dto) throws Exception {
+        preStm.setString(1, dto.getUsername());
+        preStm.setString(2, dto.getPassword());
+        preStm.setString(3, dto.getFullname());
+        preStm.setString(4, dto.getAddressUser());
+        preStm.setString(5, dto.getPhone());
+        preStm.setString(6, dto.getEmail());
+        preStm.setBoolean(7, dto.isIsActive());
+        preStm.setInt(8, dto.getRoleId());
+        preStm.setInt(9, dto.getUserId());
     }
 }

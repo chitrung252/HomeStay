@@ -49,17 +49,17 @@
 
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="admin.jsp">
+                    <a class="nav-link" href="../../HotelManagement/admin/admin.jsp">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Trang Chủ</span>
                     </a>
-                    <a class="nav-link" href="<%= UrlWebsite.USERCONTROLLER %>?action=GetUser">
+                    <a class="nav-link" href="../../HotelManagement/<%= UrlWebsite.USERCONTROLLER %>?action=GetUser">
                         <i class="fas fa-fw fa-cog"></i>
                         <span>Quản lí tài khoản</span>
                     </a>
-                    <a class="nav-link" href="index.html">
+                    <a class="nav-link" href="../../HotelManagement/<%= UrlWebsite.ROOMCONTROLLER %>?action=GetRoom">
                         <i class="fas fa-fw fa-wrench"></i>
-                        <span>Trang lí phòng</span>
+                        <span>Quản lí phòng</span>
                     </a>
                 </li>
 

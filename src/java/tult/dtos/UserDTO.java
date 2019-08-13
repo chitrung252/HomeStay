@@ -25,6 +25,15 @@ public class UserDTO implements Serializable {
     private String roleName;
     private String email;
     private boolean isDelete;
+    private boolean isActive;
+
+    public boolean isIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(boolean isActive) {
+        this.isActive = isActive;
+    }
 
     public String getRoleName() {
         return roleName;
@@ -130,6 +139,7 @@ public class UserDTO implements Serializable {
         private String roleName;
         private String email;
         private boolean isDelete;
+        private boolean isActive;
 
         public UserBuilder UserId(int userId) {
             this.userId = userId;
@@ -186,6 +196,11 @@ public class UserDTO implements Serializable {
             return this;
         }
 
+        public UserBuilder IsActive(boolean isActive) {
+            this.isActive = isActive;
+            return this;
+        }
+
         public UserDTO build() {
             return new UserDTO(this);
         }
@@ -203,5 +218,6 @@ public class UserDTO implements Serializable {
         roleName = builder.roleName;
         email = builder.email;
         isDelete = builder.isDelete;
+        isActive = builder.isActive;
     }
 }

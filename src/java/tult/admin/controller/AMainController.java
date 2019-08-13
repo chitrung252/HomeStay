@@ -29,12 +29,16 @@ public class AMainController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         String url = UrlWebsite.ERROR;
         try {
             String action = request.getParameter("action");
             if(action != null){
-                if(action.equals("GetUser") || action.equals("EditUser") || action.equals("DeleteUser"))
+                if(action.equals("GetUser") || action.equals("EditUser") 
+                || action.equals("DeleteUser") || action.equals("CreateUser") || action.equals("UpdateUser"))
                     url = UrlWebsite.USERCONTROLLER;
+                if(action.equals("GetRoom"))
+                    url = UrlWebsite.ROOMCONTROLLER;
             }
         } catch (Exception e) {
             log("ERROR at AMainController " + e.getMessage());

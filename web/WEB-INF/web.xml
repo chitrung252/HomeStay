@@ -18,7 +18,7 @@
     </servlet>
     <servlet>
         <servlet-name>AManageUserController</servlet-name>
-        <servlet-class>tult.admin.controller.AManageUserController</servlet-class>      
+        <servlet-class>tult.admin.controller.AManageUserController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>GetListFoodController</servlet-name>
@@ -27,6 +27,10 @@
     <servlet>
         <servlet-name>GetListRoomController</servlet-name>
         <servlet-class>tult.controller.GetListRoomController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AManageRoomController</servlet-name>
+        <servlet-class>tult.admin.controller.AManageRoomController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
@@ -46,7 +50,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AManageUserController</servlet-name>
-        <url-pattern>/AManageUserController</url-pattern>      
+        <url-pattern>/AManageUserController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>GetListFoodController</servlet-name>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>GetListRoomController</servlet-name>
         <url-pattern>/GetListRoomController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AManageRoomController</servlet-name>
+        <url-pattern>/AManageRoomController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

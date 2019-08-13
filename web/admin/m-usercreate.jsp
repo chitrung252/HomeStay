@@ -4,11 +4,14 @@
     Author     : Chi Trung
 --%>
 
-<%@page import="tult.dtos.UserDTO"%>
-<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@include file="header.jsp" %>
+<style>
+    form small{
+        display: none;
+    }
+</style>
 <div class="container-fluid">
 
     <!-- Page Heading -->
@@ -17,61 +20,54 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Sửa tài khoản</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Thêm tài khoản</h6>
         </div>
-        <div class="card-body">
-            <% UserDTO dto = (UserDTO) request.getAttribute("USER");%>
-            <form method="POST" action="<%= UrlWebsite.AMAINCONTROLLER%>" id="formSubmit">
-                <input type="hidden" name="txtUserId" value="<%=dto.getUserId()%>"/>
+        <div class="card-body">          
+            <form method="POST" action="../<%= UrlWebsite.AMAINCONTROLLER%>" id="formSubmit">
                 <div class="form-group">
                     <label for="username">Tên đăng nhập</label>
-                    <input type="text" class="form-control" id="username" value="<%= dto.getUsername()%>" name="txtUsername">
+                    <input type="text" class="form-control" id="username" name="txtUsername" >
                     <small id="error-username" class="form-text text-danger"></small>
                 </div>
                 <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" value="<%= dto.getPassword()%>" name="txtPassword">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" class="form-control" id="password"  name="txtPassword" >
                     <small id="error-password" class="form-text text-danger"></small>
                 </div>
                 <div class="form-group">
-                    <label for="re-password">Re-Password</label>
-                    <input type="password" class="form-control" id="re-password" value="<%= dto.getPassword()%>" >
+                    <label for="password">Nhập lại mật khẩu</label>
+                    <input type="password" class="form-control" id="re-password" >
                     <small id="error-repassword" class="form-text text-danger"></small>
                 </div>
                 <div class="form-group">
                     <label for="fullname">Họ và Tên</label>
-                    <input type="text" class="form-control" id="fullname" value="<%= dto.getFullname()%>" name="txtFullname">
+                    <input type="text" class="form-control" id="fullname" name="txtFullname">
                     <small id="error-fullname" class="form-text text-danger"></small>
                 </div>
                 <div class="form-group">
                     <label for="address">Địa chỉ</label>
-                    <input type="text" class="form-control" id="address" value="<%= dto.getAddressUser()%>" name="txtAddress">
+                    <input type="text" class="form-control" id="address" name="txtAddress">
                     <small id="error-address" class="form-text text-danger"></small>
                 </div>  
                 <div class="form-group">
                     <label for="phone">SĐT</label>
-                    <input type="number" class="form-control" id="phone" value="<%= dto.getPhone()%>" name="txtPhone">
+                    <input type="number" class="form-control" id="phone" name="txtPhone">
                     <small id="error-phone" class="form-text text-danger"></small>
                 </div> 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="text" class="form-control" id="email" value="<%= dto.getEmail()%>" name="txtEmail">
+                    <input type="text" class="form-control" id="email" name="txtEmail">
                     <small id="error-email" class="form-text text-danger"></small>
                 </div> 
-                <div class="form-group">
-                    <label for="datecreate">Ngày tạo</label>
-                    <input type="date" class="form-control" id="datecreate" disabled="" value="<%= dto.getDayCreate()%>">              
-                </div>  
                 <div class="form-group">
                     <label for="roleid">Vai trò</label>
                     <select class="form-control" id="roleid" name="slRoleId">
                         <option value="2">Staff</option>
                     </select>
                 </div>
-                    <input type="hidden" value="<%= dto.isIsActive() %>" id="cbActive">
                 <div class="row col-md-12 my-3">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="cbStatus" id="exampleRadios1" value="true">
+                        <input class="form-check-input" type="radio" name="cbStatus" id="exampleRadios1" value="true" checked>
                         <label class="form-check-label" for="exampleRadios1">
                             Hoạt động
                         </label>
@@ -84,29 +80,20 @@
                         </label>
                     </div>
                 </div>
-                <button type="submit" name="action" value="UpdateUser" class="btn btn-primary">Lưu</button>
-                <a href="<%= UrlWebsite.USERCONTROLLER%>?action=GetUser "class="btn btn-success">Trở về </a>
+                <button type="submit" name="action" value="CreateUser" class="btn btn-primary">Lưu</button>
+                <a href="../<%= UrlWebsite.USERCONTROLLER%>?action=GetUser "class="btn btn-success">Trở về </a>
             </form>
+
+
         </div>
     </div>
 
 </div>
 <%@include file="footer.jsp" %>
 <script>
-     $(function () {
+    $(function () {
         checkForm();
-        checkActive();
     });
-    function checkActive(){
-        var active = $("#cbActive").val();
-        var checkTrue = $("#exampleRadios1");
-        var checkFalse = $("#exampleRadios2");
-        if(active == 'true'){
-            checkTrue.prop("checked", true)
-        }else{
-            checkFalse.prop("checked", true);
-        }           
-    }
     function checkForm() {
         var form = $("#formSubmit");
         form.on("submit", function (event) {
