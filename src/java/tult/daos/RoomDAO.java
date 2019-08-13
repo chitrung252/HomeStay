@@ -48,14 +48,14 @@ public class RoomDAO implements Serializable {
            preStm = conn.prepareCall("{call sp_main_dbo_room_getListRooms}");;
            rs = preStm.executeQuery();
            list = new ArrayList<>();
-           String RoomId, RoomName, RoomPrice, RoomSpace, RoomDes;
            while(rs.next()){
-               RoomId = rs.getString(Name.ROOMID);
-               RoomName = rs.getString(Name.ROOMNAME);
-               RoomPrice = rs.getString(Name.ROOMPRICE);
-               RoomSpace = rs.getString(Name.ROOMPRICE);
-               RoomDes = rs.getString(Name.ROOMDES);
-               dto = new RoomDTO(RoomId, RoomName, RoomPrice, RoomSpace, RoomDes);
+               dto = new RoomDTO.RoomBuilder()
+                       .RoomId(rs.getInt(Name.ROOMID))
+                       .RoomName(rs.getString(Name.ROOMNAME))
+                       .Price(rs.getFloat(Name.ROOMPRICE))
+                       .Space(rs.getFloat(Name.ROOMSPACE))
+                       .Desc(rs.getString(Name.ROOMDES))
+                       .build();
                list.add(dto);             
            }
        } finally{

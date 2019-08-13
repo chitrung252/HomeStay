@@ -11,82 +11,148 @@ import java.io.Serializable;
  *
  * @author TuanTu
  */
-public class RoomDTO implements Serializable{
-    public String RoomId;
-    public String RoomName;
-    public String Price;
-    public String Quanlity;
-    public String Space;
-    public String Desc;
+public class RoomDTO implements Serializable {
+
+    public int roomId;
+    public String roomName;
+    public float price;
+    public String quanlity;
+    public float space;
+    public String desc;
+    public boolean isDelete;
+    public boolean isActive;
+
     public RoomDTO() {
     }
 
-    public RoomDTO(String RoomId, String RoomName, String Price, String Quanlity, String Space, String Desc) {
-        this.RoomId = RoomId;
-        this.RoomName = RoomName;
-        this.Price = Price;
-        this.Quanlity = Quanlity;
-        this.Space = Space;
-        this.Desc = Desc;
+    public float getPrice() {
+        return price;
     }
 
-    public RoomDTO(String RoomId, String RoomName, String Price, String Space, String Desc) {
-        this.RoomId = RoomId;
-        this.RoomName = RoomName;
-        this.Price = Price;
-        this.Space = Space;
-        this.Desc = Desc;
-    }
-    
-    public String getRoomId() {
-        return RoomId;
+    public void setPrice(float price) {
+        this.price = price;
     }
 
-    public void setRoomId(String RoomId) {
-        this.RoomId = RoomId;
+    public float getSpace() {
+        return space;
+    }
+
+    public void setSpace(float space) {
+        this.space = space;
+    }
+
+    public boolean isIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(boolean isDelete) {
+        this.isDelete = isDelete;
+    }
+
+    public boolean isIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(boolean isActive) {
+        this.isActive = isActive;
+    }
+
+    public int getRoomId() {
+        return roomId;
+    }
+
+    public void setRoomId(int roomId) {
+        this.roomId = roomId;
     }
 
     public String getRoomName() {
-        return RoomName;
+        return roomName;
     }
 
-    public void setRoomName(String RoomName) {
-        this.RoomName = RoomName;
-    }
-
-    public String getPrice() {
-        return Price;
-    }
-
-    public void setPrice(String Price) {
-        this.Price = Price;
+    public void setRoomName(String roomName) {
+        this.roomName = roomName;
     }
 
     public String getQuanlity() {
-        return Quanlity;
+        return quanlity;
     }
 
-    public void setQuanlity(String Quanlity) {
-        this.Quanlity = Quanlity;
-    }
-
-    public String getSpace() {
-        return Space;
-    }
-
-    public void setSpace(String Space) {
-        this.Space = Space;
+    public void setQuanlity(String quanlity) {
+        this.quanlity = quanlity;
     }
 
     public String getDesc() {
-        return Desc;
+        return desc;
     }
 
-    public void setDesc(String Desc) {
-        this.Desc = Desc;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
-    
-    
-    
+    public static class RoomBuilder {
+
+        public int roomId;
+        public String roomName;
+        public float price;
+        public String quanlity;
+        public float space;
+        public String desc;
+        public boolean isDelete;
+        public boolean isActive;
+
+        public RoomBuilder RoomId(int roomId) {
+            this.roomId = roomId;
+            return this;
+        }
+
+        public RoomBuilder RoomName(String roomName) {
+            this.roomName = roomName;
+            return this;
+        }
+
+        public RoomBuilder Price(float price) {
+            this.price = price;
+            return this;
+        }
+
+        public RoomBuilder Quanlity(String quanlity) {
+            this.quanlity = quanlity;
+            return this;
+        }
+
+        public RoomBuilder Space(float space) {
+            this.space = space;
+            return this;
+        }
+
+        public RoomBuilder Desc(String desc) {
+            this.desc = desc;
+            return this;
+        }
+
+        public RoomBuilder IsDelete(boolean isDelete) {
+            this.isDelete = isDelete;
+            return this;
+        }
+
+        public RoomBuilder IsActive(boolean isActive) {
+            this.isActive = isActive;
+            return this;
+        }
+
+        public RoomDTO build() {
+            return new RoomDTO(this);
+        }
+    }
+
+    public RoomDTO(RoomBuilder builder) {
+        this.roomId = builder.roomId;
+        this.roomName = builder.roomName;
+        this.price = builder.price;
+        this.quanlity = builder.quanlity;
+        this.space = builder.space;
+        this.desc = builder.desc;
+        this.isDelete = builder.isDelete;
+        this.isActive = builder.isActive;
+    }
 }
