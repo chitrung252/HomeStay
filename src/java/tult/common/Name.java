@@ -26,7 +26,7 @@ public class Name {
 // Room
     public static final String ROOMID = "RoomId";
     public static final String ROOMNAME = "RoomName";
-    public static final String ROOMPRICE = "Price";
+    public static final String ROOMPRICE = "RoomPrice";
     public static final String ROOMQUANLITY = "Quanlity";
     public static final String ROOMDES = "RoomDes";
     public static final String ROOMSPACE = "RoomSpace";

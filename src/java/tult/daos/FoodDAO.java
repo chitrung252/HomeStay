@@ -52,6 +52,7 @@ public class FoodDAO {
                  foodPrice = rs.getString(Name.FOODPRICE);
                  foodImage = rs.getString(Name.FOODIMAGE);
                  dto = new FoodDTO(foodId, foodName, foodPrice, foodImage);
+                 
                  list.add(dto);
              }
          }finally{

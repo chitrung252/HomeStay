@@ -6,10 +6,15 @@
 package tult.controller;
 
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import tult.daos.FoodDAO;
+import tult.daos.RoomDAO;
+import tult.dtos.FoodDTO;
+import tult.dtos.RoomDTO;
 
 /**
  *
@@ -32,8 +37,13 @@ public class HomeController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
         try {
-           
-           
+              RoomDAO daoRoom = new  RoomDAO();
+            List<RoomDTO> listRoom = daoRoom.getListRoom();
+            request.setAttribute("LISTROOM", listRoom);
+             FoodDAO daoFood = new FoodDAO();
+            List<FoodDTO> list = daoFood.getListFood();
+            request.setAttribute("LISTFOOD", listRoom);
+            url = HOME; 
         } catch (Exception e) {
             log("ERROR at HomController" + e.getMessage());
         }finally{

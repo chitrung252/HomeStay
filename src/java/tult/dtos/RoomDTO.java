@@ -11,6 +11,7 @@ import java.io.Serializable;
  *
  * @author TuanTu
  */
+
 public class RoomDTO implements Serializable {
 
     public int roomId;
@@ -23,38 +24,6 @@ public class RoomDTO implements Serializable {
     public boolean isActive;
 
     public RoomDTO() {
-    }
-
-    public float getPrice() {
-        return price;
-    }
-
-    public void setPrice(float price) {
-        this.price = price;
-    }
-
-    public float getSpace() {
-        return space;
-    }
-
-    public void setSpace(float space) {
-        this.space = space;
-    }
-
-    public boolean isIsDelete() {
-        return isDelete;
-    }
-
-    public void setIsDelete(boolean isDelete) {
-        this.isDelete = isDelete;
-    }
-
-    public boolean isIsActive() {
-        return isActive;
-    }
-
-    public void setIsActive(boolean isActive) {
-        this.isActive = isActive;
     }
 
     public int getRoomId() {
@@ -73,12 +42,28 @@ public class RoomDTO implements Serializable {
         this.roomName = roomName;
     }
 
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
     public String getQuanlity() {
         return quanlity;
     }
 
     public void setQuanlity(String quanlity) {
         this.quanlity = quanlity;
+    }
+
+    public float getSpace() {
+        return space;
+    }
+
+    public void setSpace(float space) {
+        this.space = space;
     }
 
     public String getDesc() {
@@ -89,6 +74,22 @@ public class RoomDTO implements Serializable {
         this.desc = desc;
     }
 
+    public boolean isIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(boolean isDelete) {
+        this.isDelete = isDelete;
+    }
+
+    public boolean isIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(boolean isActive) {
+        this.isActive = isActive;
+    }
+  
     public static class RoomBuilder {
 
         public int roomId;
@@ -155,4 +156,5 @@ public class RoomDTO implements Serializable {
         this.isDelete = builder.isDelete;
         this.isActive = builder.isActive;
     }
+
 }
