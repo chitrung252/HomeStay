@@ -89,14 +89,14 @@ public class AManageRoomController extends HttpServlet {
     public String createRoom(HttpServletRequest request) throws Exception {
         String url = UrlWebsite.ERROR;
         RoomDTO dto = new RoomDTO.RoomBuilder()
-                .RoomName(request.getParameter("txtRoomname"))
-                .Password(request.getParameter("txtPassword"))
-                .FullName(request.getParameter("txtFullname"))
-                .AddressRoom(request.getParameter("txtAddress"))
-                .Phone(request.getParameter("txtPhone"))
-                .Email(request.getParameter("txtEmail"))
-                .RoleId(Integer.parseInt(request.getParameter("slRoleId")))
-                .IsActive(Boolean.parseBoolean(request.getParameter("cbStatus")))
+//                .RoomName(request.getParameter("txtRoomname"))
+//                .Password(request.getParameter("txtPassword"))
+//                .FullName(request.getParameter("txtFullname"))
+//                .AddressRoom(request.getParameter("txtAddress"))
+//                .Phone(request.getParameter("txtPhone"))
+//                .Email(request.getParameter("txtEmail"))
+//                .RoleId(Integer.parseInt(request.getParameter("slRoleId")))
+//                .IsActive(Boolean.parseBoolean(request.getParameter("cbStatus")))
                 .build();
         boolean check = dao.createRoom(dto);
         if (check) {
@@ -118,15 +118,15 @@ public class AManageRoomController extends HttpServlet {
     private String updateRoom(HttpServletRequest request) throws Exception {
         String url = UrlWebsite.ERROR;
         RoomDTO dto = new RoomDTO.RoomBuilder()
-                .RoomName(request.getParameter("txtRoomname"))
-                .Password(request.getParameter("txtPassword"))
-                .FullName(request.getParameter("txtFullname"))
-                .AddressRoom(request.getParameter("txtAddress"))
-                .Phone(request.getParameter("txtPhone"))
-                .Email(request.getParameter("txtEmail"))
-                .RoleId(Integer.parseInt(request.getParameter("slRoleId")))
-                .IsActive(Boolean.parseBoolean(request.getParameter("cbStatus")))
-                .RoomId(Integer.parseInt(request.getParameter("txtRoomId")))
+//                .RoomName(request.getParameter("txtRoomname"))
+//                .Password(request.getParameter("txtPassword"))
+//                .FullName(request.getParameter("txtFullname"))
+//                .AddressRoom(request.getParameter("txtAddress"))
+//                .Phone(request.getParameter("txtPhone"))
+//                .Email(request.getParameter("txtEmail"))
+//                .RoleId(Integer.parseInt(request.getParameter("slRoleId")))
+//                .IsActive(Boolean.parseBoolean(request.getParameter("cbStatus")))
+//                .RoomId(Integer.parseInt(request.getParameter("txtRoomId")))
                 .build();
         boolean check = dao.updateRoom(dto);
         if (check) {
