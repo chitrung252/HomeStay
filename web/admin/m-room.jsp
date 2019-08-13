@@ -1,19 +1,15 @@
 <%-- 
-    Document   : m-user
-    Created on : Aug 8, 2019, 12:10:47 AM
+    Document   : m-room
+    Created on : Aug 13, 2019, 10:10:21 AM
     Author     : Chi Trung
 --%>
 
-<%@page import="tult.util.MyUtil"%>
-<%@page import="tult.dtos.UserDTO"%>
-<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <%@include file="header.jsp" %>
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Quản lí tài khoản</h1>
+    <h1 class="h3 mb-2 text-gray-800">Quản lí phòng</h1>
     <p></p>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">

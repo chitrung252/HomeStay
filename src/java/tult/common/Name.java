@@ -17,13 +17,14 @@ public class Name {
     public static final String PASSWORD = "Password";
     public static final String FULLNAME = "FullName";
     public static final String ADDRESSUSER = "AddressUser";
+     public static final String EMAIL = "Email";
     public static final String DAYCREATE = "DayCreate";
     public static final String PHONE = "Phone";
 //    Role
     public static final String ROLEID = "RoleId";
     public static final String ROLENAME = "RoleName";
 // Room
-      public static final String ROOMID = "RoomId";
+    public static final String ROOMID = "RoomId";
     public static final String ROOMNAME = "RoomName";
     public static final String ROOMPRICE = "Price";
     public static final String ROOMQUANLITY = "Quanlity";
@@ -39,6 +40,7 @@ public class Name {
     public static final String FOODPRICE = "FoodPrice";
     public static final String FOODIMAGE = "FoodImage";
 //    common
+    public static final String ISACTIVE = "IsActive";
     public static final String ISDELETE = "IsDelete";
     public static final String DESCRIPTION = "Description";
 }

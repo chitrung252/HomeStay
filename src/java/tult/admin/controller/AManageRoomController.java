@@ -11,17 +11,17 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import tult.admin.daos.AUserDao;
+import tult.admin.daos.ARoomDao;
 import tult.common.UrlWebsite;
-import tult.dtos.UserDTO;
+import tult.dtos.RoomDTO;
 
 /**
  *
  * @author Chi Trung
  */
-public class AManageUserController extends HttpServlet {
+public class AManageRoomController extends HttpServlet {
 
-    private AUserDao dao = new AUserDao();
+    private ARoomDao dao = new ARoomDao();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,35 +40,35 @@ public class AManageUserController extends HttpServlet {
         try {
             String action = request.getParameter("action");
             switch (action) {
-                case "GetUser":
-                    url = getListUser(request);
+                case "GetRoom":
+                    url = getListRoom(request);
                     break;
-                case "EditUser":
-                    int userId = Integer.parseInt(request.getParameter("userId"));
-                    url = editUser(request, userId);
+                case "EditRoom":
+                    int roomId = Integer.parseInt(request.getParameter("roomId"));
+                    url = editRoom(request, roomId);
                     break;
-                case "UpdateUser":
-                    url = updateUser(request);
+                case "UpdateRoom":
+                    url = updateRoom(request);
                     break;
-                case "CreateUser":
-                    url = createUser(request);
+                case "CreateRoom":
+                    url = createRoom(request);
                     break;
-                case "DeleteUser":
-                    url = deleteUser(request);
+                case "DeleteRoom":
+                    url = deleteRoom(request);
                     break;
                 default:
                     url = UrlWebsite.ERROR;
             }
         } catch (Exception e) {
-            log("ERROR at AManageUserController" + e.getMessage());
+            log("ERROR at AManageRoomController" + e.getMessage());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
     }
 
-    public String getListUser(HttpServletRequest request) throws Exception {
+    public String getListRoom(HttpServletRequest request) throws Exception {
         String url = UrlWebsite.ERROR;
-        List<UserDTO> result = dao.getListUser();
+        List<RoomDTO> result = dao.getListRoom();
         if (result != null) {
             url = UrlWebsite.USER;
             request.setAttribute("LISTUSER", result);
@@ -76,9 +76,9 @@ public class AManageUserController extends HttpServlet {
         return url;
     }
 
-    public String editUser(HttpServletRequest request, int id) throws Exception {
+    public String editRoom(HttpServletRequest request, int id) throws Exception {
         String url = UrlWebsite.ERROR;
-        UserDTO dto = dao.editUser(id);
+        RoomDTO dto = dao.editRoom(id);
         if (dto != null) {
             url = UrlWebsite.USERDETAIL;
             request.setAttribute("USER", dto);
@@ -86,51 +86,51 @@ public class AManageUserController extends HttpServlet {
         return url;
     }
 
-    public String createUser(HttpServletRequest request) throws Exception {
+    public String createRoom(HttpServletRequest request) throws Exception {
         String url = UrlWebsite.ERROR;
-        UserDTO dto = new UserDTO.UserBuilder()
-                .UserName(request.getParameter("txtUsername"))
+        RoomDTO dto = new RoomDTO.RoomBuilder()
+                .RoomName(request.getParameter("txtRoomname"))
                 .Password(request.getParameter("txtPassword"))
                 .FullName(request.getParameter("txtFullname"))
-                .AddressUser(request.getParameter("txtAddress"))
+                .AddressRoom(request.getParameter("txtAddress"))
                 .Phone(request.getParameter("txtPhone"))
                 .Email(request.getParameter("txtEmail"))
                 .RoleId(Integer.parseInt(request.getParameter("slRoleId")))
                 .IsActive(Boolean.parseBoolean(request.getParameter("cbStatus")))
                 .build();
-        boolean check = dao.createUser(dto);
+        boolean check = dao.createRoom(dto);
         if (check) {
-            url = getListUser(request);
+            url = getListRoom(request);
         }
         return url;
     }
 
-    private String deleteUser(HttpServletRequest request) throws Exception {
+    private String deleteRoom(HttpServletRequest request) throws Exception {
         String url = UrlWebsite.ERROR;
-        int userId = Integer.parseInt(request.getParameter("userId"));
-        boolean check = dao.deleteUser(userId);
+        int roomId = Integer.parseInt(request.getParameter("roomId"));
+        boolean check = dao.deleteRoom(roomId);
         if (check) {
-            url = getListUser(request);
+            url = getListRoom(request);
         }
         return url;
     }
 
-    private String updateUser(HttpServletRequest request) throws Exception {
+    private String updateRoom(HttpServletRequest request) throws Exception {
         String url = UrlWebsite.ERROR;
-        UserDTO dto = new UserDTO.UserBuilder()
-                .UserName(request.getParameter("txtUsername"))
+        RoomDTO dto = new RoomDTO.RoomBuilder()
+                .RoomName(request.getParameter("txtRoomname"))
                 .Password(request.getParameter("txtPassword"))
                 .FullName(request.getParameter("txtFullname"))
-                .AddressUser(request.getParameter("txtAddress"))
+                .AddressRoom(request.getParameter("txtAddress"))
                 .Phone(request.getParameter("txtPhone"))
                 .Email(request.getParameter("txtEmail"))
                 .RoleId(Integer.parseInt(request.getParameter("slRoleId")))
                 .IsActive(Boolean.parseBoolean(request.getParameter("cbStatus")))
-                .UserId(Integer.parseInt(request.getParameter("txtUserId")))
+                .RoomId(Integer.parseInt(request.getParameter("txtRoomId")))
                 .build();
-        boolean check = dao.updateUser(dto);
+        boolean check = dao.updateRoom(dto);
         if (check) {
-            url = getListUser(request);
+            url = getListRoom(request);
         }
         return url;
     }

@@ -56,8 +56,7 @@ public class RoomDAO implements Serializable {
                RoomSpace = rs.getString(Name.ROOMPRICE);
                RoomDes = rs.getString(Name.ROOMDES);
                dto = new RoomDTO(RoomId, RoomName, RoomPrice, RoomSpace, RoomDes);
-               list.add(dto);
-               
+               list.add(dto);             
            }
        } finally{
            closeConnection();
