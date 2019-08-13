@@ -14,30 +14,30 @@ import java.io.Serializable;
 public class RoomDTO implements Serializable{
     public String RoomId;
     public String RoomName;
-    public String Price;
+    public String RoomPrice;
     public String Quanlity;
-    public String Space;
-    public String Desc;
+    public String RoomSpace;
+    public String RoomDes;
     public RoomDTO() {
     }
 
-    public RoomDTO(String RoomId, String RoomName, String Price, String Quanlity, String Space, String Desc) {
+    public RoomDTO(String RoomId, String RoomName, String RoomPrice, String Quanlity, String RoomSpace, String RoomDes) {
         this.RoomId = RoomId;
         this.RoomName = RoomName;
-        this.Price = Price;
+        this.RoomPrice = RoomPrice;
         this.Quanlity = Quanlity;
-        this.Space = Space;
-        this.Desc = Desc;
+        this.RoomSpace = RoomSpace;
+        this.RoomDes = RoomDes;
     }
 
-    public RoomDTO(String RoomId, String RoomName, String Price, String Space, String Desc) {
+    public RoomDTO(String RoomId, String RoomName, String RoomPrice, String RoomSpace, String RoomDes) {
         this.RoomId = RoomId;
         this.RoomName = RoomName;
-        this.Price = Price;
-        this.Space = Space;
-        this.Desc = Desc;
+        this.RoomPrice = RoomPrice;
+        this.RoomSpace = RoomSpace;
+        this.RoomDes = RoomDes;
     }
-    
+
     public String getRoomId() {
         return RoomId;
     }
@@ -54,12 +54,12 @@ public class RoomDTO implements Serializable{
         this.RoomName = RoomName;
     }
 
-    public String getPrice() {
-        return Price;
+    public String getRoomPrice() {
+        return RoomPrice;
     }
 
-    public void setPrice(String Price) {
-        this.Price = Price;
+    public void setRoomPrice(String RoomPrice) {
+        this.RoomPrice = RoomPrice;
     }
 
     public String getQuanlity() {
@@ -70,21 +70,23 @@ public class RoomDTO implements Serializable{
         this.Quanlity = Quanlity;
     }
 
-    public String getSpace() {
-        return Space;
+    public String getRoomSpace() {
+        return RoomSpace;
     }
 
-    public void setSpace(String Space) {
-        this.Space = Space;
+    public void setRoomSpace(String RoomSpace) {
+        this.RoomSpace = RoomSpace;
     }
 
-    public String getDesc() {
-        return Desc;
+    public String getRoomDes() {
+        return RoomDes;
     }
 
-    public void setDesc(String Desc) {
-        this.Desc = Desc;
+    public void setRoomDes(String RoomDes) {
+        this.RoomDes = RoomDes;
     }
+
+    
 
     
     

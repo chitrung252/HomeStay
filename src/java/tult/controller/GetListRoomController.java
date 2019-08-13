@@ -37,6 +37,7 @@ public class GetListRoomController extends HttpServlet {
         try {
             RoomDAO dao = new  RoomDAO();
             List<RoomDTO> list = dao.getListRoom();
+            System.out.println("list room :"  + list);
             request.setAttribute("LISTROOM", list);
             url = SUCCESS;
         } catch (Exception e) {

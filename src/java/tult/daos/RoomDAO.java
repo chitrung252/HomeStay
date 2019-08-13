@@ -42,7 +42,7 @@ public class RoomDAO implements Serializable {
 
    public  List<RoomDTO> getListRoom()throws Exception{
        List<RoomDTO> list = null;
-       RoomDTO dto  = null;
+       RoomDTO dto;
        try {
            conn = MyConnection.GetMyConnection();
            preStm = conn.prepareCall("{call sp_main_dbo_room_getListRooms}");;
@@ -53,9 +53,10 @@ public class RoomDAO implements Serializable {
                RoomId = rs.getString(Name.ROOMID);
                RoomName = rs.getString(Name.ROOMNAME);
                RoomPrice = rs.getString(Name.ROOMPRICE);
-               RoomSpace = rs.getString(Name.ROOMPRICE);
+               RoomSpace = rs.getString(Name.ROOMSPACE);
                RoomDes = rs.getString(Name.ROOMDES);
                dto = new RoomDTO(RoomId, RoomName, RoomPrice, RoomSpace, RoomDes);
+               System.out.println(" list room :"  + dto);
                list.add(dto);
                
            }
