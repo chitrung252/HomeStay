@@ -91,13 +91,13 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-xs-2">
-                                <div id="colorlib-logo"><a href="main/index.jsp">HomeStay</a></div>
+                                <div id="colorlib-logo"><a href="HomeController">HomeStay</a></div>
                             </div>
                             <div class="col-xs-10 text-right menu-1">
                                 <ul>
-                                    <li class="active"><a href="main/index.jsp">Trang chủ</a></li>
+                                    <li class="active"><a href="HomeController">Trang chủ</a></li>
                                     <li class="has-dropdown">
-                                        <a href="main/rooms-suites.jsp">Đặt phòng</a>
+                                        <a href="GetListRoomController">Đặt phòng</a>
                                         <!--									<ul class="dropdown">
                                                                                                                         <li><a href="#">Web Design</a></li>
                                                                                                                         <li><a href="#">eCommerce</a></li>
@@ -106,6 +106,7 @@
                                                                                                                 </ul>-->
                                     </li>
                                     <li><a href="GetListFoodController">Đồ ăn</a></li>
+                                    <li><a href="view.jsp">Giỏ hàng</a></li>
                                     <li><a href="admin/login.jsp">Đăng nhập</a></li>
 
                                 </ul>

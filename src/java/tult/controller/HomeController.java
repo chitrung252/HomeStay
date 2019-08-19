@@ -6,6 +6,7 @@
 package tult.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,8 +14,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import tult.daos.FoodDAO;
 import tult.daos.RoomDAO;
+import tult.daos.ServiceDAO;
 import tult.dtos.FoodDTO;
 import tult.dtos.RoomDTO;
+import tult.dtos.ServiceRoomDTO;
 
 /**
  *
@@ -22,9 +25,9 @@ import tult.dtos.RoomDTO;
  */
 public class HomeController extends HttpServlet {
     private static final String ERROR ="error.jsp";
-    private static final String HOME ="index.jsp";
+    private static final String HOME ="main/index.jsp";
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * Processes requests or both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
      * @param request servlet request
@@ -36,13 +39,16 @@ public class HomeController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
+        String result = null;
         try {
-              RoomDAO daoRoom = new  RoomDAO();
+            RoomDAO daoRoom = new  RoomDAO();
+            ServiceDAO  serviceDao = new ServiceDAO();
+            List<String> listServicesRoom = new ArrayList<>();
             List<RoomDTO> listRoom = daoRoom.getListRoom();
             request.setAttribute("LISTROOM", listRoom);
-             FoodDAO daoFood = new FoodDAO();
-            List<FoodDTO> list = daoFood.getListFood();
-            request.setAttribute("LISTFOOD", listRoom);
+            FoodDAO daoFood = new FoodDAO();
+            List<FoodDTO> listFood = daoFood.getListFood();
+            request.setAttribute("LISTFOOD", listFood);
             url = HOME; 
         } catch (Exception e) {
             log("ERROR at HomController" + e.getMessage());

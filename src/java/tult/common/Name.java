@@ -30,6 +30,10 @@ public class Name {
     public static final String ROOMQUANLITY = "Quanlity";
     public static final String ROOMDES = "RoomDes";
     public static final String ROOMSPACE = "RoomSpace";
+    public static final String TMP1 = "Tmp1";
+    public static final String TMP2 = "Tmp2";
+    public static final String TMP3 = "Tmp3";
+    public static final String ImageURL = "ImageUrl";
      //Order
     public static final String ORDERID = "OrderId";
     public static final String ORDERNAME = "OrderName";
@@ -43,4 +47,11 @@ public class Name {
     public static final String ISACTIVE = "IsActive";
     public static final String ISDELETE = "IsDelete";
     public static final String DESCRIPTION = "Description";
+    // service
+    public static final String SERVICEID = "ServiceId";
+    public static final String SERVICENAME = "NameService";
+    public static final String DATECREATESERVICE = "DateCreateService";
+    public static final String PRICESERVICE = "PriceService";
+    // Customer
+    public static final String CUSTOMERID = "CustomerId";
 }

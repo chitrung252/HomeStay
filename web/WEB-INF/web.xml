@@ -32,6 +32,30 @@
         <servlet-name>AManageRoomController</servlet-name>
         <servlet-class>tult.admin.controller.AManageRoomController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddRoomToCartController</servlet-name>
+        <servlet-class>tult.controller.AddRoomToCartController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveCartController</servlet-name>
+        <servlet-class>tult.controller.RemoveCartController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetServiceRomController</servlet-name>
+        <servlet-class>tult.controller.GetServiceRomController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchRoomController</servlet-name>
+        <servlet-class>tult.controller.SearchRoomController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RoomDetailController</servlet-name>
+        <servlet-class>tult.controller.RoomDetailController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddCustomerController</servlet-name>
+        <servlet-class>tult.controller.AddCustomerController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/HomeController</url-pattern>
@@ -64,12 +88,36 @@
         <servlet-name>AManageRoomController</servlet-name>
         <url-pattern>/AManageRoomController</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddRoomToCartController</servlet-name>
+        <url-pattern>/AddRoomToCartController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveCartController</servlet-name>
+        <url-pattern>/RemoveCartController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetServiceRomController</servlet-name>
+        <url-pattern>/GetServiceRomController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchRoomController</servlet-name>
+        <url-pattern>/SearchRoomController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RoomDetailController</servlet-name>
+        <url-pattern>/RoomDetailController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddCustomerController</servlet-name>
+        <url-pattern>/AddCustomerController</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>main/index.jsp</welcome-file>
+        <welcome-file>HomeController</welcome-file>
     </welcome-file-list>
 </web-app>

@@ -14,7 +14,7 @@ import tult.common.UrlWebsite;
 
 /**
  *
- * @author Chi Trung
+ * @author TuanTu
  */
 public class AMainController extends HttpServlet {
     /**

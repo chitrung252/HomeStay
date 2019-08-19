@@ -6,6 +6,7 @@
 package tult.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,20 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author TuanTu
+ * @author Admin
  */
-public class MainController extends HttpServlet {
-    private static final String ERROR ="error.jsp";
-    private static final String ADDCARTROOM ="AddRoomToCartController";
-    private static final String HOME ="HomeController";
-    private static final String REMOVECARTROOM ="RemoveCartController";
-    private static final String ROOMDETAIL ="RoomDetailController";
-    private static final String GETLISTROOM ="GetListRoomController";
-    private static final String GETLISTFOOD ="GetListFoodController";
-    private static final String GETLISTROOMSERVICE ="GetServiceRoomController";
-    private static final String LOGIN ="LoginController";
-    private static final String ORDERBOOKING ="AddCustomerController";
-    
+public class GetServiceRomController extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -39,32 +30,13 @@ public class MainController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         String url = ERROR;
         try {
-        String action = request.getParameter("action");
-        if(action.equals("Add to Cart")){
-            url= ADDCARTROOM;
-        }
-        else if(action.equals("Remove")){
-            url = REMOVECARTROOM;
-        }
-        else if(action.equals("RoomDetail")){
-            url = ROOMDETAIL;
-        }
-        else if(action.equals("Home")){
-            url = HOME;
-        }
-        else if(action.equals("Book")){
-            url = ORDERBOOKING;
-        }
-        else
-            request.setAttribute("ERROR","Action is not support");
-        
+            
         } catch (Exception e) {
-            log("ERROR at the MainController" +e.getMessage());
-        
-        } finally {
-            request.getRequestDispatcher(url).forward(request, response);
+            log("Error at Get Service Room Controller " +e.getMessage());
+        }
+        finally{
+            request.getRequestDispatcher("").forward(request, response);
         }
     }
 
